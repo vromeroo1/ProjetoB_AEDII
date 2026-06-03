@@ -18,7 +18,6 @@ import javax.swing.JTextField;
 public class TelaPrincipal extends JFrame {
     private ListaDuplamenteLigada listaMapas;
     private ListaDuplamenteLigada listaConsultas;
-    private JTextField campoResponsavel;
     private JTextField campoNumero;
     private JTextArea areaSaida;
     private JButton botaoAbrirMapa;
@@ -51,7 +50,7 @@ public class TelaPrincipal extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel painelPrincipal = new JPanel(new BorderLayout());
-        JPanel painelTopo = new JPanel(new GridLayout(5, 1));
+        JPanel painelTopo = new JPanel(new GridLayout(4, 1));
 
         JLabel titulo = new JLabel("Projeto B - Pesquisa na Rod Presidente Dutra");
         JLabel integrantes = new JLabel("Bruno Alexandre - Victor Romero - Felipe Biscaro - Thiago Guiterrez");
@@ -60,12 +59,6 @@ public class TelaPrincipal extends JFrame {
         painelTopo.add(titulo);
         painelTopo.add(integrantes);
         painelTopo.add(carregados);
-
-        JPanel painelResponsavel = new JPanel(new BorderLayout());
-        painelResponsavel.add(new JLabel("Responsavel pela consulta: "), BorderLayout.WEST);
-        this.campoResponsavel = new JTextField();
-        painelResponsavel.add(this.campoResponsavel, BorderLayout.CENTER);
-        painelTopo.add(painelResponsavel);
 
         JPanel painelPesquisa = new JPanel(new BorderLayout());
         painelPesquisa.add(new JLabel("Numero da Rod Presidente Dutra: "), BorderLayout.WEST);
@@ -146,12 +139,7 @@ public class TelaPrincipal extends JFrame {
                 return;
             }
 
-            String responsavel = this.campoResponsavel.getText().trim();
-            if (responsavel.length() == 0) {
-                responsavel = "Nao informado";
-            }
-
-            Consulta consulta = new Consulta(responsavel, numeroPesquisado, encontrado);
+            Consulta consulta = new Consulta(numeroPesquisado, encontrado);
             this.listaConsultas.adiciona(consulta);
             this.ultimaUrl = encontrado.getUrl();
             this.botaoAbrirMapa.setEnabled(true);

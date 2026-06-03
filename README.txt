@@ -25,10 +25,15 @@ O programa le cada linha, separa o numero, o endereco e a URL, cria um
 objeto LocalMapa e insere esse objeto na lista de forma ordenada pelo
 numero do endereco.
 
-Cadastro de identificacao:
-A tela possui um campo para informar o responsavel pela consulta. Cada
-pesquisa gera um objeto Consulta, que e guardado em outra lista propria.
-O botao Historico de Consultas mostra as consultas feitas na memoria RAM.
+Historico de consultas:
+Cada pesquisa gera um objeto Consulta, que e guardado em outra lista
+propria. O botao Historico de Consultas mostra as consultas feitas na
+memoria RAM.
+
+Ligacao com Google Maps:
+Cada endereco do arquivo Mapas.txt possui uma URL do Google Maps. Depois
+que a pesquisa encontra o endereco mais proximo, o botao Abrir Mapa abre
+essa URL no navegador. Nao foi usada API externa do Google Maps.
 
 Como o algoritmo encontra a URL mais proxima:
 Como a lista esta ordenada, a busca percorre os enderecos em ordem
@@ -54,7 +59,7 @@ Como executar:
 2. Compile os arquivos:
    javac *.java
 3. Execute o programa:
-   java Nome_program
+   java main
 
 Observacoes:
 O projeto nao usa ArrayList, LinkedList, HashMap, TreeMap, generics,

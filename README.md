@@ -3,7 +3,7 @@
 Projeto final da disciplina **Algoritmos e Estrutura de Dados II** do curso de
 Engenharia da Computacao - UNIVAP.
 
-O projeto sortido foi o **Projeto B**, que pede uma interface grafica para
+O projeto escolhido foi o **Projeto B**, que pede uma interface grafica para
 pesquisar enderecos da **Rod Presidente Dutra** e retornar a URL do Google Maps
 mais proxima do numero informado.
 
@@ -16,10 +16,7 @@ mais proxima do numero informado.
 
 ## O que o programa faz
 
-O usuario informa:
-
-- o nome do responsavel pela consulta;
-- um numero da Rod Presidente Dutra.
+O usuario informa um numero da Rod Presidente Dutra.
 
 O programa entao procura, nos dados carregados do arquivo `Mapas.txt`, qual
 endereco possui o numero mais proximo ao numero pesquisado.
@@ -110,9 +107,18 @@ o programa compara `161` e `200`, retornando `161`, pois esta mais perto de
 - Busca aproximada em lista ordenada: `O(n)`, com parada antecipada
 - Memoria: `O(n)`
 
+## Sobre o Google Maps
+
+O enunciado fala em criar um front-end ligado ao Google Maps. Neste projeto,
+isso foi feito de forma simples: cada endereco possui uma URL do Google Maps no
+arquivo `Mapas.txt`, e o botao **Abrir Mapa** abre essa URL no navegador.
+
+Nao foi usada API externa do Google Maps. Assim, o projeto continua simples,
+sem chave de API, sem biblioteca externa e sem framework web.
+
 ## Arquivos do projeto
 
-- `Nome_program.java`: classe principal com o `main`
+- `main.java`: classe principal com o `main`
 - `TelaPrincipal.java`: interface grafica em Swing
 - `Celula.java`: celula da lista duplamente encadeada
 - `ListaDuplamenteLigada.java`: estrutura propria usada no projeto
@@ -134,7 +140,7 @@ javac *.java
 Depois execute:
 
 ```bash
-java Nome_program
+java main
 ```
 
 ## Requisitos atendidos
@@ -146,7 +152,6 @@ java Nome_program
 - Lista duplamente encadeada propria
 - Insercao ordenada
 - Busca sequencial ordenada com parada antecipada
-- Cadastro de identificacao das consultas
 - Historico das consultas em lista propria
 - Sem `ArrayList`, generics, `Collections.sort`, Stream API, lambda, Maven,
   Gradle ou banco de dados
