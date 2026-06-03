@@ -3,7 +3,7 @@
 Projeto final da disciplina **Algoritmos e Estrutura de Dados II** do curso de
 Engenharia da Computacao - UNIVAP.
 
-O projeto escolhido foi o **Projeto B**, que pede uma interface grafica para
+O projeto sortido foi o **Projeto B**, que pede uma interface grafica para
 pesquisar enderecos da **Rod Presidente Dutra** e retornar a URL do Google Maps
 mais proxima do numero informado.
 
