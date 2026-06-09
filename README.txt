@@ -68,10 +68,7 @@ Como executar a demonstracao web:
 2. Execute o servidor:
    java ServidorWeb
 3. Abra no navegador:
-   http://localhost:8080
-
-Se a porta 8080 ja estiver ocupada no computador, o servidor tenta abrir na
-porta 8090 e mostra no terminal qual endereco deve ser usado.
+   http://localhost:8181
 
 Nesse modo, o servidor Java carrega o Mapas.txt usando LeitorMapas, guarda os
 enderecos na ListaDuplamenteLigada e usa BuscadorMapa para fazer a pesquisa. O

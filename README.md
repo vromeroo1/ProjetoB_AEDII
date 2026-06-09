@@ -50,11 +50,8 @@ java ServidorWeb
 Depois abra no navegador:
 
 ```text
-http://localhost:8080
+http://localhost:8181
 ```
-
-Se a porta 8080 ja estiver ocupada no computador, o servidor tenta abrir na
-porta 8090 e mostra no terminal qual endereco deve ser usado.
 
 Nesse modo, o Java abre um servidor local simples, sem framework. O servidor
 carrega o `Mapas.txt` com `LeitorMapas`, guarda os dados na
