@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.IOException;
+import java.net.BindException;
 import java.net.InetSocketAddress;
 import java.net.URLDecoder;
 import java.nio.file.Files;
@@ -23,13 +24,26 @@ public class ServidorWeb {
     public static void main(String[] args) {
         try {
             int porta = 8080;
+            boolean portaInformada = false;
 
             if (args.length > 0) {
                 porta = Integer.parseInt(args[0]);
+                portaInformada = true;
             }
 
             ServidorWeb servidorWeb = new ServidorWeb();
-            servidorWeb.iniciar(porta);
+
+            try {
+                servidorWeb.iniciar(porta);
+            } catch (BindException erroPorta) {
+                if (portaInformada) {
+                    System.out.println("Porta " + porta + " ja esta em uso.");
+                    System.out.println("Tente executar informando outra porta. Exemplo: java ServidorWeb 8090");
+                } else {
+                    System.out.println("Porta 8080 ja esta em uso. Tentando porta 8090.");
+                    servidorWeb.iniciar(8090);
+                }
+            }
         } catch (Exception erro) {
             System.out.println("Erro ao iniciar servidor web: " + erro.getMessage());
         }
