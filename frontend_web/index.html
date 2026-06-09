@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Localizador de Enderecos da Rodovia Presidente Dutra</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="topo">
+        <div>
+            <h1>Localizador de Enderecos da Rodovia Presidente Dutra</h1>
+            <p>Projeto B - Algoritmos e Estruturas de Dados II</p>
+        </div>
+        <div class="integrantes">
+            <span>Bruno Alexandre</span>
+            <span>Victor Romero</span>
+            <span>Felipe Biscaro</span>
+            <span>Thiago Guiterrez</span>
+        </div>
+    </header>
+
+    <main class="conteudo">
+        <section class="painel-controles">
+            <div class="status" id="status">Carregando Mapas.txt...</div>
+
+            <label for="responsavel">Responsavel pela consulta</label>
+            <input id="responsavel" type="text" placeholder="Ex.: Victor Romero">
+
+            <label for="numero">Numero da Rodovia Presidente Dutra</label>
+            <input id="numero" type="number" placeholder="Ex.: 170">
+
+            <div class="botoes">
+                <button type="button" id="btnPesquisar">Pesquisar</button>
+                <button type="button" id="btnAbrirMapa">Abrir Mapa</button>
+                <button type="button" id="btnListar">Listar Enderecos</button>
+                <button type="button" id="btnHistorico">Historico de Consultas</button>
+                <button type="button" id="btnLimpar">Limpar Resultado</button>
+            </div>
+        </section>
+
+        <section class="painel-resultado">
+            <textarea id="resultado" readonly></textarea>
+            <div class="mapa-area">
+                <iframe
+                    id="mapa"
+                    title="Mapa da Rodovia Presidente Dutra"
+                    src="https://www.google.com/maps?q=Rod%20Presidente%20Dutra&output=embed">
+                </iframe>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

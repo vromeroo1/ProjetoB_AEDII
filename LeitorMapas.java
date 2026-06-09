@@ -18,6 +18,7 @@ public class LeitorMapas {
             linha = leitor.readLine();
         }
 
+        leitor.close();
         return lista;
     }
 

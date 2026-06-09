@@ -1,14 +1,20 @@
 public class Consulta {
+    private String responsavel;
     private int numeroPesquisado;
     private int numeroEncontrado;
     private int diferenca;
     private String urlEncontrada;
 
-    public Consulta(int numeroPesquisado, LocalMapa localEncontrado) {
+    public Consulta(String responsavel, int numeroPesquisado, LocalMapa localEncontrado) {
+        this.responsavel = responsavel;
         this.numeroPesquisado = numeroPesquisado;
         this.numeroEncontrado = localEncontrado.getNumero();
         this.urlEncontrada = localEncontrado.getUrl();
         this.diferenca = Math.abs(numeroPesquisado - this.numeroEncontrado);
+    }
+
+    public String getResponsavel() {
+        return this.responsavel;
     }
 
     public int getNumeroPesquisado() {
@@ -28,7 +34,8 @@ public class Consulta {
     }
 
     public String toString() {
-        return "Pesquisado: " + this.numeroPesquisado
+        return "Responsavel: " + this.responsavel
+                + " | Pesquisado: " + this.numeroPesquisado
                 + " | Encontrado: " + this.numeroEncontrado
                 + " | Diferenca: " + this.diferenca
                 + " | URL: " + this.urlEncontrada;
