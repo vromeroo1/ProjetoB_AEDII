@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.BindException;
 import java.net.InetSocketAddress;
 import java.net.URLDecoder;
 import java.nio.file.Files;
@@ -26,6 +27,11 @@ public class ServidorWeb {
             int porta = 8181;
             ServidorWeb servidorWeb = new ServidorWeb();
             servidorWeb.iniciar(porta);
+        } catch (BindException erroPorta) {
+            System.out.println("A porta 8181 ja esta em uso.");
+            System.out.println("Provavelmente o servidor ja esta aberto.");
+            System.out.println("Acesse no navegador: http://localhost:8181");
+            System.out.println("Para reiniciar, feche o terminal antigo com Ctrl+C.");
         } catch (Exception erro) {
             System.out.println("Erro ao iniciar servidor web: " + erro.getMessage());
         }
