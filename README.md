@@ -39,22 +39,24 @@ A pasta `frontend_web` contem uma demonstracao visual em HTML, CSS e JavaScript
 puro. Essa versao e apenas complementar para apresentacao e nao substitui o
 projeto Java oficial.
 
-O front-end carrega automaticamente `frontend_web/Mapas.txt` usando
-`fetch("Mapas.txt")`, mostra um mapa por `iframe` e atualiza o mapa quando a
-pesquisa encontra o endereco mais proximo.
+O front-end tenta carregar automaticamente `frontend_web/Mapas.txt` usando
+`fetch("Mapas.txt")`. Se o navegador bloquear a leitura ao abrir o HTML direto
+por duplo clique, a pagina usa uma copia local dos dados dentro do `script.js`.
+Assim a demonstracao funciona sem Live Server. A tela mostra um mapa por
+`iframe` e atualiza o mapa quando a pesquisa encontra o endereco mais proximo.
 
 Nao foi usada Google Maps API com chave, API externa de calculo, Node.js,
 banco de dados ou framework.
 
 ## Como executar o front-end
 
-Com Live Server:
+Abrindo direto:
 
-1. Abra a pasta do projeto no VS Code.
-2. Clique com o botao direito em `frontend_web/index.html`.
-3. Escolha `Open with Live Server`.
+1. Abra a pasta `frontend_web`.
+2. Clique duas vezes em `index.html`.
+3. Pesquise um numero da rodovia.
 
-Com Python:
+Com Python, se quiser servir localmente:
 
 ```bash
 cd frontend_web

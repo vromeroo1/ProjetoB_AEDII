@@ -9,6 +9,9 @@ A pagina carrega esse arquivo automaticamente usando:
 fetch("Mapas.txt")
 
 O usuario nao precisa selecionar arquivo manualmente.
+Se o navegador bloquear a leitura direta do arquivo ao abrir index.html por
+duplo clique, a pagina usa automaticamente uma copia dos dados dentro do
+script.js. Assim a demonstracao continua funcionando sem Live Server.
 
 Mapa:
 A tela possui um mapa embutido por iframe.
@@ -21,10 +24,10 @@ Nao foi usada Google Maps API com chave.
 Nao foi usada API externa de calculo.
 Nao foi usado Node.js, banco de dados ou framework.
 
-Como executar com Live Server:
-1. Abra a pasta do projeto no VS Code.
-2. Clique com o botao direito em frontend_web/index.html.
-3. Escolha Open with Live Server.
+Como executar abrindo direto:
+1. Abra a pasta frontend_web.
+2. Clique duas vezes no arquivo index.html.
+3. A pagina deve carregar os dados automaticamente.
 
 Como executar com Python:
 1. Abra o terminal na pasta frontend_web.

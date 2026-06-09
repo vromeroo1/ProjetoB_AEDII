@@ -81,9 +81,11 @@ Como executar o front-end com Python:
 3. Abra no navegador:
    http://localhost:8000
 
-O front-end carrega automaticamente o Mapas.txt da pasta frontend_web usando
-fetch("Mapas.txt"). A tela possui um mapa embutido por iframe e nao usa Google
-Maps API com chave, banco de dados, Node.js ou framework.
+O front-end tenta carregar automaticamente o Mapas.txt da pasta frontend_web
+usando fetch("Mapas.txt"). Se o navegador bloquear a leitura ao abrir o HTML
+direto por duplo clique, a pagina usa uma copia local dos dados dentro do
+script.js. A tela possui um mapa embutido por iframe e nao usa Google Maps API
+com chave, banco de dados, Node.js ou framework.
 
 Observacoes:
 O projeto nao usa ArrayList, LinkedList, HashMap, TreeMap, generics,

@@ -1,6 +1,13 @@
 var locais = [];
 var historico = [];
 var ultimaUrlEncontrada = "";
+var mapasReserva = ""
+    + "Rod Presidente Dutra, 145:https://www.google.com.br/maps/search/Rod+Presidente+Dutra,+145/@-23.275092,-45.9753995,508m/data=!3m2!1e3!4b1\n"
+    + "Rod Presidente Dutra, 160:https://www.google.com.br/maps/search/Rod+Presidente+Dutra,+160/@-23.2904937,-46.015075,5233m/data=!3m2!1e3!4b1\n"
+    + "Rod Presidente Dutra, 161:https://www.google.com.br/maps/search/Rod+Presidente+Dutra,+161/@-23.2756492,-45.9747189,383m/data=!3m1!1e3\n"
+    + "Rod Presidente Dutra, 200:https://www.google.com.br/maps/search/Rod+Presidente+Dutra,+200/@-23.2766949,-45.9771053,387m/data=!3m1!1e3\n"
+    + "Rod Presidente Dutra, 300:https://www.google.com.br/maps/place/Rod.+Pres.+Dutra,+300+-+Parque+Meia+Lua,+Jacare%C3%AD+-+SP,+12335-010/@-23.275694,-45.9766883,651m/data=!3m1!1e3!4m5!3m4!1s0x94cc34abe041cf99:0x29a9b51b5df63b53!8m2!3d-23.2762987!4d-45.976437\n"
+    + "Rod Presidente Dutra, 120:https://www.google.com.br/maps/search/Rod+Presidente+Dutra,+120/@-23.3006576,-46.0172349,389m/data=!3m1!1e3";
 
 var campoResponsavel = document.getElementById("responsavel");
 var campoNumero = document.getElementById("numero");
@@ -47,15 +54,14 @@ function carregarMapas() {
             return resposta.text();
         })
         .then(function (texto) {
-            montarLista(texto);
+            montarLista(texto, "Mapas.txt carregado automaticamente.");
         })
         .catch(function () {
-            statusTexto.textContent = "Nao foi possivel carregar o Mapas.txt. Execute a pagina usando Live Server ou um servidor local.";
-            resultado.value = "Erro ao carregar dados do mapa.";
+            montarLista(mapasReserva, "Navegador bloqueou a leitura direta do Mapas.txt. Dados locais do projeto carregados automaticamente.");
         });
 }
 
-function montarLista(texto) {
+function montarLista(texto, mensagemInicial) {
     var linhas = texto.split(/\r?\n/);
     var ignoradas = 0;
 
@@ -80,9 +86,9 @@ function montarLista(texto) {
     ordenarPorNumero();
 
     if (ignoradas > 0) {
-        statusTexto.textContent = "Enderecos carregados: " + locais.length + ". Linhas mal formatadas ignoradas: " + ignoradas + ".";
+        statusTexto.textContent = mensagemInicial + " Enderecos carregados: " + locais.length + ". Linhas mal formatadas ignoradas: " + ignoradas + ".";
     } else {
-        statusTexto.textContent = "Enderecos carregados: " + locais.length + ".";
+        statusTexto.textContent = mensagemInicial + " Enderecos carregados: " + locais.length + ".";
     }
 }
 
