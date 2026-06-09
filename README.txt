@@ -57,6 +57,23 @@ Como executar:
 3. Execute o programa:
    java Main
 
+Modo demonstracao web usando Java:
+Tambem foi criada uma classe ServidorWeb.java. Ela e opcional e serve apenas
+para demonstrar o projeto em uma pagina web. O projeto oficial continua sendo o
+Java com Swing.
+
+Como executar a demonstracao web:
+1. Compile os arquivos:
+   javac *.java
+2. Execute o servidor:
+   java ServidorWeb
+3. Abra no navegador:
+   http://localhost:8080
+
+Nesse modo, o servidor Java carrega o Mapas.txt usando LeitorMapas, guarda os
+enderecos na ListaDuplamenteLigada e usa BuscadorMapa para fazer a pesquisa. O
+front-end chama o Java pelas rotas /buscar, /enderecos e /historico.
+
 Front-end web complementar:
 Tambem foi criada uma pasta frontend_web com uma demonstracao visual em HTML,
 CSS e JavaScript puro. Essa parte web foi feita apenas para ajudar na
@@ -69,23 +86,10 @@ frontend_web/script.js
 frontend_web/Mapas.txt
 frontend_web/README_FRONTEND.txt
 
-Como executar o front-end com Live Server:
-1. Abra a pasta do projeto no VS Code.
-2. Clique com o botao direito em frontend_web/index.html.
-3. Escolha Open with Live Server.
-
-Como executar o front-end com Python:
-1. Abra o terminal dentro da pasta frontend_web.
-2. Execute:
-   python -m http.server 8000
-3. Abra no navegador:
-   http://localhost:8000
-
-O front-end tenta carregar automaticamente o Mapas.txt da pasta frontend_web.
-Para funcionar tambem quando o index.html for aberto direto, os mesmos dados
-ficam como reserva dentro do script.js. A tela possui um mapa embutido por
-iframe e nao usa Google Maps API com chave, banco de dados, Node.js ou
-framework.
+O front-end nao faz a busca sozinho em JavaScript. Ele chama o servidor Java
+local e mostra o JSON retornado pela propria logica do projeto. A tela possui
+um mapa embutido por iframe e nao usa Google Maps API com chave, banco de
+dados, Node.js ou framework.
 
 Observacoes:
 O projeto nao usa ArrayList, LinkedList, HashMap, TreeMap, generics,

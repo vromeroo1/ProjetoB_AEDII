@@ -34,45 +34,45 @@ Execute:
 java Main
 ```
 
+## Demonstracao web usando Java
+
+Tambem foi adicionada uma camada opcional para demonstracao web. Ela nao troca
+o projeto oficial em Swing. A ideia e apenas mostrar a mesma busca em uma tela
+HTML, mas usando a logica real do Java.
+
+Para executar:
+
+```bash
+javac *.java
+java ServidorWeb
+```
+
+Depois abra no navegador:
+
+```text
+http://localhost:8080
+```
+
+Nesse modo, o Java abre um servidor local simples, sem framework. O servidor
+carrega o `Mapas.txt` com `LeitorMapas`, guarda os dados na
+`ListaDuplamenteLigada` e usa `BuscadorMapa` para encontrar o endereco mais
+proximo. O front-end chama as rotas `/buscar`, `/enderecos` e `/historico`.
+
 ## Front-end web complementar
 
-A pasta `frontend_web` foi criada apenas para ajudar na apresentacao. Ela mostra
-a mesma ideia do projeto em uma pagina HTML, com CSS e JavaScript puro. Essa
-versao web nao substitui o Java oficial.
-
-O front-end tenta carregar `frontend_web/Mapas.txt` automaticamente. Para a
-pagina tambem funcionar quando for aberta direto pelo arquivo `index.html`, os
-mesmos dados foram deixados como reserva dentro do `script.js`. A tela mostra um
-mapa por `iframe` e atualiza esse mapa depois da pesquisa.
+A pasta `frontend_web` foi criada apenas para ajudar na apresentacao. Ela usa
+HTML, CSS e JavaScript puro. O JavaScript nao faz a busca sozinho: ele envia a
+pesquisa para o servidor Java local, recebe o JSON de resposta e mostra o
+resultado na tela.
 
 Nao foi usada Google Maps API com chave, API externa de calculo, Node.js, banco
 de dados ou framework.
 
-## Como executar o front-end
-
-Abrindo direto:
-
-1. Abra a pasta `frontend_web`.
-2. Clique duas vezes em `index.html`.
-3. Pesquise um numero da rodovia.
-
-Com Python, se quiser servir localmente:
-
-```bash
-cd frontend_web
-python -m http.server 8000
-```
-
-Depois acesse:
-
-```text
-http://localhost:8000
-```
-
 ## Busca pelo endereco mais proximo
 
-Os enderecos sao carregados do `Mapas.txt`, separados pela virgula e pelos dois
-pontos, ordenados pelo numero e pesquisados em ordem crescente.
+Os enderecos sao carregados pelo Java a partir do `Mapas.txt`, separados pela
+virgula e pelos dois pontos, ordenados pelo numero e pesquisados em ordem
+crescente.
 
 Quando o numero atual passa do numero pesquisado, o programa compara o endereco
 anterior com o atual. O endereco com menor diferenca e retornado. Em caso de
