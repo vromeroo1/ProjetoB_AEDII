@@ -11,9 +11,10 @@ Disciplina: Algoritmos e Estrutura de Dados II
 
 ## Projeto Java oficial
 
-O projeto oficial da disciplina e uma aplicacao Java com interface grafica em
-Swing. O usuario informa um numero da Rodovia Presidente Dutra e o programa
-mostra a URL do endereco mais proximo carregado a partir do arquivo `Mapas.txt`.
+Este trabalho foi feito para o Projeto B da disciplina. A parte principal e o
+programa Java com interface grafica em Swing. O usuario digita um numero da
+Rodovia Presidente Dutra e o sistema mostra o endereco cadastrado mais proximo,
+junto com a URL do Google Maps.
 
 O Java usa uma lista duplamente encadeada propria, formada pelas classes
 `Celula` e `ListaDuplamenteLigada`. Cada celula guarda um `Object elemento`,
@@ -35,18 +36,17 @@ java Main
 
 ## Front-end web complementar
 
-A pasta `frontend_web` contem uma demonstracao visual em HTML, CSS e JavaScript
-puro. Essa versao e apenas complementar para apresentacao e nao substitui o
-projeto Java oficial.
+A pasta `frontend_web` foi criada apenas para ajudar na apresentacao. Ela mostra
+a mesma ideia do projeto em uma pagina HTML, com CSS e JavaScript puro. Essa
+versao web nao substitui o Java oficial.
 
-O front-end tenta carregar automaticamente `frontend_web/Mapas.txt` usando
-`fetch("Mapas.txt")`. Se o navegador bloquear a leitura ao abrir o HTML direto
-por duplo clique, a pagina usa uma copia local dos dados dentro do `script.js`.
-Assim a demonstracao funciona sem Live Server. A tela mostra um mapa por
-`iframe` e atualiza o mapa quando a pesquisa encontra o endereco mais proximo.
+O front-end tenta carregar `frontend_web/Mapas.txt` automaticamente. Para a
+pagina tambem funcionar quando for aberta direto pelo arquivo `index.html`, os
+mesmos dados foram deixados como reserva dentro do `script.js`. A tela mostra um
+mapa por `iframe` e atualiza esse mapa depois da pesquisa.
 
-Nao foi usada Google Maps API com chave, API externa de calculo, Node.js,
-banco de dados ou framework.
+Nao foi usada Google Maps API com chave, API externa de calculo, Node.js, banco
+de dados ou framework.
 
 ## Como executar o front-end
 

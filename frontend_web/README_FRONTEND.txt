@@ -1,7 +1,7 @@
 Front-end web complementar - Projeto B AED II
 
-Esta versao web e apenas uma demonstracao complementar para apresentacao.
-O projeto oficial da disciplina continua sendo o projeto Java em Swing.
+Esta versao web foi feita apenas como demonstracao complementar para a
+apresentacao. O projeto oficial da disciplina continua sendo o Java em Swing.
 
 O arquivo Mapas.txt fica armazenado dentro da pasta frontend_web.
 A pagina carrega esse arquivo automaticamente usando:
@@ -9,9 +9,8 @@ A pagina carrega esse arquivo automaticamente usando:
 fetch("Mapas.txt")
 
 O usuario nao precisa selecionar arquivo manualmente.
-Se o navegador bloquear a leitura direta do arquivo ao abrir index.html por
-duplo clique, a pagina usa automaticamente uma copia dos dados dentro do
-script.js. Assim a demonstracao continua funcionando sem Live Server.
+Para a pagina funcionar tambem quando for aberta direto pelo index.html, os
+mesmos dados foram colocados como reserva dentro do script.js.
 
 Mapa:
 A tela possui um mapa embutido por iframe.
@@ -27,7 +26,7 @@ Nao foi usado Node.js, banco de dados ou framework.
 Como executar abrindo direto:
 1. Abra a pasta frontend_web.
 2. Clique duas vezes no arquivo index.html.
-3. A pagina deve carregar os dados automaticamente.
+3. Pesquise o numero da rodovia na tela.
 
 Como executar com Python:
 1. Abra o terminal na pasta frontend_web.

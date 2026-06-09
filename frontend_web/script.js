@@ -12,7 +12,6 @@ var mapasReserva = ""
 var campoResponsavel = document.getElementById("responsavel");
 var campoNumero = document.getElementById("numero");
 var resultado = document.getElementById("resultado");
-var statusTexto = document.getElementById("status");
 var mapa = document.getElementById("mapa");
 
 var btnPesquisar = document.getElementById("btnPesquisar");
@@ -54,16 +53,15 @@ function carregarMapas() {
             return resposta.text();
         })
         .then(function (texto) {
-            montarLista(texto, "Mapas.txt carregado automaticamente.");
+            montarLista(texto);
         })
         .catch(function () {
-            montarLista(mapasReserva, "Navegador bloqueou a leitura direta do Mapas.txt. Dados locais do projeto carregados automaticamente.");
+            montarLista(mapasReserva);
         });
 }
 
-function montarLista(texto, mensagemInicial) {
+function montarLista(texto) {
     var linhas = texto.split(/\r?\n/);
-    var ignoradas = 0;
 
     locais = [];
 
@@ -72,24 +70,15 @@ function montarLista(texto, mensagemInicial) {
 
         if (local != null) {
             locais[locais.length] = local;
-        } else if (linhas[i].trim().length > 0) {
-            ignoradas++;
         }
     }
 
     if (locais.length == 0) {
-        statusTexto.textContent = "Mapas.txt foi carregado, mas esta vazio ou sem linhas validas.";
         resultado.value = "Nenhum endereco valido foi encontrado.";
         return;
     }
 
     ordenarPorNumero();
-
-    if (ignoradas > 0) {
-        statusTexto.textContent = mensagemInicial + " Enderecos carregados: " + locais.length + ". Linhas mal formatadas ignoradas: " + ignoradas + ".";
-    } else {
-        statusTexto.textContent = mensagemInicial + " Enderecos carregados: " + locais.length + ".";
-    }
 }
 
 function montarLocal(linha) {

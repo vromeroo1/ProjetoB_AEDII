@@ -59,8 +59,8 @@ Como executar:
 
 Front-end web complementar:
 Tambem foi criada uma pasta frontend_web com uma demonstracao visual em HTML,
-CSS e JavaScript puro. Essa versao web e apenas complementar para apresentacao
-e nao substitui o projeto Java oficial.
+CSS e JavaScript puro. Essa parte web foi feita apenas para ajudar na
+apresentacao do trabalho e nao substitui o projeto Java oficial.
 
 Arquivos do front-end:
 frontend_web/index.html
@@ -81,11 +81,11 @@ Como executar o front-end com Python:
 3. Abra no navegador:
    http://localhost:8000
 
-O front-end tenta carregar automaticamente o Mapas.txt da pasta frontend_web
-usando fetch("Mapas.txt"). Se o navegador bloquear a leitura ao abrir o HTML
-direto por duplo clique, a pagina usa uma copia local dos dados dentro do
-script.js. A tela possui um mapa embutido por iframe e nao usa Google Maps API
-com chave, banco de dados, Node.js ou framework.
+O front-end tenta carregar automaticamente o Mapas.txt da pasta frontend_web.
+Para funcionar tambem quando o index.html for aberto direto, os mesmos dados
+ficam como reserva dentro do script.js. A tela possui um mapa embutido por
+iframe e nao usa Google Maps API com chave, banco de dados, Node.js ou
+framework.
 
 Observacoes:
 O projeto nao usa ArrayList, LinkedList, HashMap, TreeMap, generics,
