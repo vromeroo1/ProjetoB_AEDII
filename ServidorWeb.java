@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.URLDecoder;
 import java.nio.file.Files;
@@ -182,10 +183,7 @@ public class ServidorWeb {
         }
 
         byte[] bytes = Files.readAllBytes(arquivo.toPath());
-        troca.getResponseHeaders().set("Content-Type", tipoConteudo(arquivo.getName()));
-        troca.sendResponseHeaders(200, bytes.length);
-        troca.getResponseBody().write(bytes);
-        troca.getResponseBody().flush();
+        enviarBytes(troca, 200, bytes, tipoConteudo(arquivo.getName()));
     }
 
     private String getParametro(String query, String nome) throws IOException {
@@ -217,10 +215,16 @@ public class ServidorWeb {
 
     private void responderTexto(HttpExchange troca, int codigo, String texto, String tipo) throws IOException {
         byte[] bytes = texto.getBytes("UTF-8");
+        enviarBytes(troca, codigo, bytes, tipo);
+    }
+
+    private void enviarBytes(HttpExchange troca, int codigo, byte[] bytes, String tipo) throws IOException {
         troca.getResponseHeaders().set("Content-Type", tipo);
         troca.sendResponseHeaders(codigo, bytes.length);
-        troca.getResponseBody().write(bytes);
-        troca.getResponseBody().flush();
+
+        try (OutputStream saida = troca.getResponseBody()) {
+            saida.write(bytes);
+        }
     }
 
     private String tipoConteudo(String nomeArquivo) {
