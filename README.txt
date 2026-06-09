@@ -16,6 +16,9 @@ Estrutura de dados usada:
 O projeto usa uma Lista Duplamente Encadeada propria, formada pelas classes
 Celula e ListaDuplamenteLigada. Cada Celula guarda um Object elemento, uma
 referencia para a proxima celula e uma referencia para a celula anterior.
+A classe Celula fica encapsulada dentro da ListaDuplamenteLigada. A busca do
+endereco mais proximo e feita pelo metodo buscarMaisProximo() da propria lista,
+e o BuscadorMapa apenas solicita essa busca.
 
 Dados do mapa:
 Cada linha de Mapas.txt possui o formato:
@@ -37,7 +40,8 @@ pesquisa encontra o endereco mais proximo, o botao Abrir Mapa abre essa URL no
 navegador. Nao foi usada API externa do Google Maps.
 
 Como o algoritmo encontra a URL mais proxima:
-Como a lista esta ordenada, a busca percorre os enderecos em ordem crescente.
+Como a lista esta ordenada, a propria ListaDuplamenteLigada percorre os
+enderecos em ordem crescente.
 Quando encontra um numero maior que o pesquisado, a busca para e compara o
 endereco atual com o endereco anterior. O que tiver menor diferenca absoluta em
 relacao ao numero digitado e escolhido. Em caso de empate, o menor numero e
@@ -72,7 +76,9 @@ Como executar a demonstracao web:
 
 Nesse modo, o servidor Java carrega o Mapas.txt usando LeitorMapas, guarda os
 enderecos na ListaDuplamenteLigada e usa BuscadorMapa para fazer a pesquisa. O
-front-end chama o Java pelas rotas /buscar, /enderecos e /historico.
+BuscadorMapa chama o metodo buscarMaisProximo() da lista, mantendo o percurso
+das celulas dentro da propria estrutura. O front-end chama o Java pelas rotas
+/buscar, /enderecos e /historico.
 
 Front-end web complementar:
 Tambem foi criada uma pasta frontend_web com uma demonstracao visual em HTML,
