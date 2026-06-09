@@ -222,9 +222,9 @@ public class ServidorWeb {
         troca.getResponseHeaders().set("Content-Type", tipo);
         troca.sendResponseHeaders(codigo, bytes.length);
 
-        try (OutputStream saida = troca.getResponseBody()) {
-            saida.write(bytes);
-        }
+        OutputStream saida = troca.getResponseBody();
+        saida.write(bytes);
+        saida.close();
     }
 
     private String tipoConteudo(String nomeArquivo) {
