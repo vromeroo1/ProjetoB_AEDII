@@ -179,6 +179,12 @@ public class ServidorWeb {
             caminho = "/index.html";
         }
 
+        String prefixoFrontend = "/frontend_web/";
+
+        if (caminho.startsWith(prefixoFrontend)) {
+            caminho = "/" + caminho.substring(prefixoFrontend.length());
+        }
+
         File pastaFrontend = new File("frontend_web");
         File arquivo = new File(pastaFrontend, caminho.substring(1));
         String raiz = pastaFrontend.getCanonicalPath();
