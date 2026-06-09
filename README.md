@@ -19,6 +19,9 @@ junto com a URL do Google Maps.
 O Java usa uma lista duplamente encadeada propria, formada pelas classes
 `Celula` e `ListaDuplamenteLigada`. Cada celula guarda um `Object elemento`,
 uma referencia para a proxima celula e uma referencia para a celula anterior.
+A manipulacao das celulas fica dentro da propria lista. Para buscar o endereco
+mais proximo, a `ListaDuplamenteLigada` oferece o metodo
+`buscarMaisProximo()`, e o `BuscadorMapa` apenas solicita essa busca.
 
 ## Como executar o Java
 
@@ -56,7 +59,9 @@ http://localhost:8181
 Nesse modo, o Java abre um servidor local simples, sem framework. O servidor
 carrega o `Mapas.txt` com `LeitorMapas`, guarda os dados na
 `ListaDuplamenteLigada` e usa `BuscadorMapa` para encontrar o endereco mais
-proximo. O front-end chama as rotas `/buscar`, `/enderecos` e `/historico`.
+proximo. O `BuscadorMapa` chama o metodo `buscarMaisProximo()` da lista,
+mantendo o percurso dos nos encapsulado dentro da estrutura. O front-end chama
+as rotas `/buscar`, `/enderecos` e `/historico`.
 
 ## Front-end web complementar
 
