@@ -112,10 +112,9 @@ public class ServidorWeb {
 
     private void tratarEnderecos(HttpExchange troca) throws IOException {
         String json = "[";
-        Celula atual = this.listaMapas.getPrimeira();
 
-        while (atual != null) {
-            LocalMapa local = (LocalMapa) atual.getElemento();
+        for (int i = 0; i < this.listaMapas.tamanho(); i++) {
+            LocalMapa local = (LocalMapa) this.listaMapas.pega(i);
 
             json = json + "{"
                     + "\"numero\":" + local.getNumero() + ","
@@ -123,11 +122,9 @@ public class ServidorWeb {
                     + "\"url\":\"" + escaparJson(local.getUrl()) + "\""
                     + "}";
 
-            if (atual.getProxima() != null) {
+            if (i < this.listaMapas.tamanho() - 1) {
                 json = json + ",";
             }
-
-            atual = atual.getProxima();
         }
 
         json = json + "]";
@@ -136,10 +133,9 @@ public class ServidorWeb {
 
     private void tratarHistorico(HttpExchange troca) throws IOException {
         String json = "[";
-        Celula atual = this.listaConsultas.getPrimeira();
 
-        while (atual != null) {
-            Consulta consulta = (Consulta) atual.getElemento();
+        for (int i = 0; i < this.listaConsultas.tamanho(); i++) {
+            Consulta consulta = (Consulta) this.listaConsultas.pega(i);
 
             json = json + "{"
                     + "\"responsavel\":\"" + escaparJson(consulta.getResponsavel()) + "\","
@@ -149,11 +145,9 @@ public class ServidorWeb {
                     + "\"url\":\"" + escaparJson(consulta.getUrlEncontrada()) + "\""
                     + "}";
 
-            if (atual.getProxima() != null) {
+            if (i < this.listaConsultas.tamanho() - 1) {
                 json = json + ",";
             }
-
-            atual = atual.getProxima();
         }
 
         json = json + "]";
